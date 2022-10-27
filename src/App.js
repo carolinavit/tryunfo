@@ -110,6 +110,7 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
       isSaveButtonDisabled,
+      arrayDeckCards,
     } = this.state;
 
     return (
@@ -129,6 +130,7 @@ class App extends React.Component {
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
+
         <Card
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -139,7 +141,22 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-
+        <div>
+          <ul>
+            { arrayDeckCards.map((e) => (
+              <Card
+                cardName={ e.cardName }
+                cardDescription={ e.cardDescription }
+                cardImage={ e.cardImage }
+                cardAttr1={ e.cardAttr1 }
+                cardAttr2={ e.cardAttr2 }
+                cardAttr3={ e.cardAttr3 }
+                cardRare={ e.cardRare }
+                cardTrunfo={ e.cardTrunfo }
+                key={ e.cardName }
+              />)) }
+          </ul>
+        </div>
       </div>
     );
   }
